@@ -12,4 +12,4 @@ RUN apt-get update &&\
 
 COPY nginx.template /nginx.template
 
-CMD  /bin/bash -c "envsubst < /nginx.template > /etc/openresty/nginx.conf && openresty -g 'daemon off;'"
+CMD  /bin/bash -c "export D='$' && envsubst < /nginx.template > /etc/openresty/nginx.conf && openresty -g 'daemon off;'"
